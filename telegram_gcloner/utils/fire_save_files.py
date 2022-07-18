@@ -36,7 +36,7 @@ class MySaveFileThread(threading.Thread):
         chat_id = update.effective_chat.id
         user_id = update.effective_user.id
         gd = GoogleDrive(user_id)
-        message = '╭──────⌈ 📥 Copying In Progress ⌋──────╮\n│\n├ 📂 Target Directory：{}\n'.format(dest_folder['path'])
+        message = '╭──────⌈ 📥 Progress ⌋──────╮\n│\n├ 📂 Target Directory：{}\n'.format(dest_folder['path'])
         inline_keyboard = InlineKeyboardMarkup(
             [[InlineKeyboardButton(text=f'🚫 Stop', callback_data=f'stop_task,{thread_id}')]])
 
@@ -153,7 +153,7 @@ class MySaveFileThread(threading.Thread):
                         progress_checked_files = int(match_checked_files.group(1))
                         progress_total_check_files = int(match_checked_files.group(2))
                     progress_max_percentage_10 = max(progress_size_percentage_10, progress_file_percentage_10)
-                    message_progress = '├──────⌈ Made with Love by Dr.Caduceus & MsGsuite⌋──────' \
+                    message_progress = '├──────⌈ Rapper.Gi⌋──────' \
                                        '├ 🗂 Source : <a href="https://drive.google.com/open?id={}">{}</a>\n│\n' \
                                        '├ ✔️ Checks： <code>{} / {}</code>\n' \
                                        '├ 📥 Transfers： <code>{} / {}</code>\n' \
@@ -265,7 +265,7 @@ class MySaveFileThread(threading.Thread):
             if self.critical_fault is True:
                 break
 
-        message += '\n╰──────⌈ ✅ Cloning Process Finished ! ✅ ⌋──────╯'
+        message += '\n╰──────⌈ ✅ Finished ! ✅ ⌋──────╯'
         try:
             context.bot.edit_message_text(chat_id=chat_id, message_id=message_id, text=message,
                                           parse_mode=ParseMode.HTML, disable_web_page_preview=True)
